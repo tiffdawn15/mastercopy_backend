@@ -37,4 +37,6 @@ public class Collection {
     public void setSavedArt(ArrayList<String> savedArt) {
         this.savedArt = savedArt;
     }
+
+    // TODO TIFF: How do I the builder pattern again?
 }
