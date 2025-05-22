@@ -1,11 +1,13 @@
 package com.aoi.Mastercopy.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
+@Document(collection = "collection")
 public class Collection {
-
+    @Id
     private String id;
     private String name;
     // TODO TIFF: This should be a set or a hashmap or something instead
