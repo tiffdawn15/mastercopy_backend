@@ -1,14 +1,16 @@
 package com.aoi.Mastercopy.model;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 @Document(collection = "collection")
 public class Collection {
     @Id
-    private String id;
+    private ObjectId id;
     private String name;
     // TODO TIFF: This should be a set or a hashmap or something instead
     private ArrayList<String> savedArt;
@@ -16,11 +18,11 @@ public class Collection {
     public Collection() {
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -41,4 +43,17 @@ public class Collection {
     }
 
     // TODO TIFF: How do I the builder pattern again?
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Collection that = (Collection) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(savedArt, that.savedArt);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, savedArt);
+    }
 }
