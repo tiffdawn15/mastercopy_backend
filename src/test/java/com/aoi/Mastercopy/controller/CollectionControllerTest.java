@@ -1,6 +1,5 @@
 package com.aoi.Mastercopy.controller;
 
-import com.aoi.Mastercopy.dto.ApiResponse;
 import com.aoi.Mastercopy.dto.CollectionDTO;
 import com.aoi.Mastercopy.model.Collection;
 import com.aoi.Mastercopy.service.CollectionService;
