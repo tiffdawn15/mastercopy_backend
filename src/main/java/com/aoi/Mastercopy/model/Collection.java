@@ -1,24 +1,29 @@
 package com.aoi.Mastercopy.model;
 
+import org.bson.types.ObjectId;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
+/**
+ * Collection class representing a collection of saved art pieces.
+ */
 public class Collection {
 
-    private String id;
+    private ObjectId id;
     private String name;
-    // TODO TIFF: This should be a set or a hashmap or something instead
-    private ArrayList<String> savedArt;
+    private HashSet<String> savedArt;
 
     public Collection() {
     }
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -30,13 +35,21 @@ public class Collection {
         this.name = name;
     }
 
-    public ArrayList<String> getSavedArt() {
+    private Collection name(String name) {
+        this.name= name;
+        return this;
+    }
+
+    public HashSet<String> getSavedArt() {
         return savedArt;
     }
 
-    public void setSavedArt(ArrayList<String> savedArt) {
+    public void setSavedArt(HashSet<String> savedArt) {
         this.savedArt = savedArt;
     }
 
-    // TODO TIFF: How do I the builder pattern again?
+    private Collection savedArt(HashSet<String> savedArt) {
+        this.savedArt = savedArt;
+        return this;
+    }
 }
